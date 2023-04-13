@@ -28,6 +28,22 @@ function getAllowedCharacters () {
   return allowedCharacters;
 
 }
+// This function is to get a random integer within a string length
+function getRandomIndex(mystring) {
+  var randomIndex = Math.floor(Math.random() * mystring.length());
+  return randomIndex;
+}
+
+// This function creates and returns the chosen password by placing it into a string and adding from the allowed characters
+function generatePassword () {
+  var password = '';
+  var passwordLength = password_length;
+  for (let X = 0; X < passwordLength; X++) {
+    password += allowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
+    
+  }
+  return password;
+}
 
 
 // Get references to the #generate element
@@ -44,3 +60,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
