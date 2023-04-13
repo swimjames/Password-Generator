@@ -1,4 +1,14 @@
 // Assignment code here
+var lower_case
+var upper_case
+var numbers
+var special_characters
+var password_length
+
+const charsUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
+const charsNumbers = '0123456789';
+const charsSpecialCharacters = '!@#$%^&*()_+-={}[]|\\:;\'"<>,.?/';
 
 
 // Get references to the #generate element
