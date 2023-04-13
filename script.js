@@ -10,6 +10,25 @@ const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const charsNumbers = '0123456789';
 const charsSpecialCharacters = '!@#$%^&*()_+-={}[]|\\:;\'"<>,.?/';
 
+// This function pulls chosen characters from the const characters and returns the allowed characters
+function getAllowedCharacters () {
+  var allowedCharacters = '';
+  if (numbers) {
+    allowedCharacters += charsNumbers;
+  }
+  if (upper_case) {
+    allowedCharacters += charsUpperCase;
+  }
+  if (lower_case) {
+    allowedCharacters += charsLowerCase;
+  }
+  if (special_characters) {
+    allowedCharacters += charsSpecialCharacters;
+  }
+  return allowedCharacters;
+
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
