@@ -3,7 +3,7 @@ var lower_case = confirm ('Do you want lower case characters?')
 var upper_case = confirm ('Do you want upper case characters?')
 var numbers = confirm ('Do you want numbers?')
 var special_characters = confirm ('Do you want special characters?')
-var password_length = prompt ('Please choose a password length between 8 and 128 characters')
+var password_length = Number (prompt ('Please choose a password length between 8 and 128 characters') )
 
 const charsUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
@@ -30,7 +30,7 @@ function getAllowedCharacters () {
 }
 // This function is to get a random integer within a string length
 function getRandomIndex(mystring) {
-  var randomIndex = Math.floor(Math.random() * mystring.length());
+  var randomIndex = Math.floor(Math.random() * mystring.length);
   return randomIndex;
 }
 
@@ -39,7 +39,7 @@ function generatePassword () {
   var password = '';
   var passwordLength = password_length;
   for (let X = 0; X < passwordLength; X++) {
-    password += allowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
+    password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
     
   }
   return password;
