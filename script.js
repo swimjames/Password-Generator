@@ -1,9 +1,9 @@
 // Assignment code here
-var lower_case
-var upper_case
-var numbers
-var special_characters
-var password_length
+var lower_case = confirm ('Do you want lower case characters?')
+var upper_case = confirm ('Do you want upper case characters?')
+var numbers = confirm ('Do you want numbers?')
+var special_characters = confirm ('Do you want special characters?')
+var password_length = prompt ('Please choose a password length between 8 and 128 characters')
 
 const charsUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
