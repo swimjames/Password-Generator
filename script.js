@@ -62,3 +62,58 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
+// if the user chooses a number then the password must contain a number
+
+
+
+function numberChecker(password) {
+  for (let index = 0; index < charsNumbers.length; index = index + 1 ) {
+    password.includes (charsNumbers.charAt(index))
+  }
+}
+
+function lowerCaseChecker(password) {
+if (lower_case){
+    for (let index = 0; index < charsLowerCase.length; index = index + 1 ) {
+    if (password.includes (charsLowerCase.charAt(index))) {
+      return true;
+    
+    }
+  }
+  return false
+}
+  else 
+  {
+    return true
+  }; 
+}
+
+function upperCaseChecker (password) {
+  if (upper_case){
+    for (let index = 0; index < charsUpperCase.length; index = index + 1 ) {
+      if (password.includes (charsUpperCase.charAt(index))) {
+        return true;
+      }
+    }
+    return false
+  }
+  else
+  {
+    return true
+  };
+}
+
+function specialCharacterChecker (password) {
+  if(special_characters){
+    for (let index = 0; index < charsSpecialCharacters.length; index = index + 1 ) {
+      if (password.includes (charsSpecialCharacters.charAt(index))) {
+        return true;
+      }
+    }
+    return false
+  }
+  else
+  {
+    return true
+  };
+}
