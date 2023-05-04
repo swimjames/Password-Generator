@@ -1,10 +1,29 @@
 // Assignment code here
-var lower_case = confirm ('Do you want lower case characters?')
-var upper_case = confirm ('Do you want upper case characters?')
-var numbers = confirm ('Do you want numbers?')
-var special_characters = confirm ('Do you want special characters?')
-var password_length = Number (prompt ('Please choose a password length between 8 and 128 characters') )
-
+var lower_case;
+var upper_case; 
+var numbers; 
+var special_characters; 
+var password_length; 
+function characterChecker(){
+  return lower_case || upper_case || numbers || special_characters
+}
+function lengthChecker(){
+  return password_length >= 8 && password_length <= 128 && password_length != NaN
+}
+function inputChecker(){
+  return charactersChecker() && lengthChecker ()
+}
+do { 
+  lower_case = confirm ('Do you want lower case characters?')
+  upper_case = confirm ('Do you want upper case characters?')
+  numbers = confirm ('Do you want numbers?')
+  special_characters = confirm ('Do you want special characters?')
+  
+} while (characterChecker() == false); 
+do { 
+  password_length = Number (prompt ('Please choose a password length between 8 and 128 characters') )
+  
+} while (lengthChecker() == false);
 const charsUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const charsNumbers = '0123456789';
