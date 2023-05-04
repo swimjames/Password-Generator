@@ -55,7 +55,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+console.log (passwordChecker(password))
 }
 
 // Add event listener to generate button
@@ -64,14 +64,19 @@ generateBtn.addEventListener("click", writePassword);
 
 // if the user chooses a number then the password must contain a number
 
-
-
-function numberChecker(password) {
-  for (let index = 0; index < charsNumbers.length; index = index + 1 ) {
-    password.includes (charsNumbers.charAt(index))
-  }
+function passwordChecker(password) {
+  return (numberChecker(password) && lowerCaseChecker(password) && upperCaseChecker(password) && specialCharacterChecker(password))
 }
 
+function numberChecker(password) {
+if (numbers){   
+    for (let index = 0; index < charsNumbers.length; index = index + 1 ) {
+    if  (password.includes (charsNumbers.charAt(index))) {
+      return true;
+    }
+  } return false
+} return true
+}
 function lowerCaseChecker(password) {
 if (lower_case){
     for (let index = 0; index < charsLowerCase.length; index = index + 1 ) {
