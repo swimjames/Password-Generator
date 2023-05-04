@@ -41,10 +41,20 @@ function generatePassword () {
   for (let X = 0; X < passwordLength; X++) {
     password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
     
+  } while (passwordChecker(password) == false) {
+    password = ''
+    for (let X = 0; X < passwordLength; X++) {
+      password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
+    }
+  
   }
   return password;
 }
-
+// do {
+//   for (let X = 0; X < passwordLength; X++) {
+//     password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
+//   }
+// } while (!passwordChecker(password));
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
