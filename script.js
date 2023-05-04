@@ -1,18 +1,18 @@
-// Assignment code here
+// Declaration of variables
 var lower_case;
 var upper_case; 
 var numbers; 
 var special_characters; 
 var password_length; 
+// Checking that at least one of the input is selected
 function characterChecker(){
   return lower_case || upper_case || numbers || special_characters
 }
+// this function is checking that the length is in the desired range
 function lengthChecker(){
   return password_length >= 8 && password_length <= 128 && password_length != NaN
 }
-function inputChecker(){
-  return charactersChecker() && lengthChecker ()
-}
+// Pop up confirms for inputs and checks the inputs
 do { 
   lower_case = confirm ('Do you want lower case characters?')
   upper_case = confirm ('Do you want upper case characters?')
@@ -20,10 +20,12 @@ do {
   special_characters = confirm ('Do you want special characters?')
   
 } while (characterChecker() == false); 
+// pop up prompts the user to input the length and checks the length
 do { 
   password_length = Number (prompt ('Please choose a password length between 8 and 128 characters') )
   
 } while (lengthChecker() == false);
+// const of possible characters
 const charsUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const charsLowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const charsNumbers = '0123456789';
@@ -55,25 +57,16 @@ function getRandomIndex(mystring) {
 
 // This function creates and returns the chosen password by placing it into a string and adding from the allowed characters
 function generatePassword () {
-  var password = '';
+  var password;
   var passwordLength = password_length;
-  for (let X = 0; X < passwordLength; X++) {
-    password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
-    
-  } while (passwordChecker(password) == false) {
-    password = ''
+  do {
+    password = '';
     for (let X = 0; X < passwordLength; X++) {
       password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
     }
-  
-  }
+  } while (!passwordChecker(password));
   return password;
 }
-// do {
-//   for (let X = 0; X < passwordLength; X++) {
-//     password += getAllowedCharacters().charAt(getRandomIndex(getAllowedCharacters()));
-//   }
-// } while (!passwordChecker(password));
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -91,12 +84,11 @@ console.log (passwordChecker(password))
 generateBtn.addEventListener("click", writePassword);
 
 
-// if the user chooses a number then the password must contain a number
-
+// this function checks the password for all inputs
 function passwordChecker(password) {
   return (numberChecker(password) && lowerCaseChecker(password) && upperCaseChecker(password) && specialCharacterChecker(password))
 }
-
+// this function checks the password for numbers input
 function numberChecker(password) {
 if (numbers){   
     for (let index = 0; index < charsNumbers.length; index = index + 1 ) {
@@ -106,6 +98,7 @@ if (numbers){
   } return false
 } return true
 }
+// this function checks the password for the lower case input
 function lowerCaseChecker(password) {
 if (lower_case){
     for (let index = 0; index < charsLowerCase.length; index = index + 1 ) {
@@ -121,7 +114,7 @@ if (lower_case){
     return true
   }; 
 }
-
+// this function checks the password for the uppercase input
 function upperCaseChecker (password) {
   if (upper_case){
     for (let index = 0; index < charsUpperCase.length; index = index + 1 ) {
@@ -136,7 +129,7 @@ function upperCaseChecker (password) {
     return true
   };
 }
-
+// this function checks the password for the special character input
 function specialCharacterChecker (password) {
   if(special_characters){
     for (let index = 0; index < charsSpecialCharacters.length; index = index + 1 ) {
